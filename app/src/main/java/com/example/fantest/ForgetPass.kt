@@ -28,17 +28,27 @@ class ForgetPass : AppCompatActivity() {
             }
             binding.progressBar.visibility = View.VISIBLE
 
-            firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
-                if (it.isSuccessful){
-                    Toast.makeText(this, "Cek email anda", Toast.LENGTH_LONG).show()
-                    finish()
-                    binding.progressBar.visibility = View.GONE
+            if (email.isNotEmpty()) {
+                firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Toast.makeText(this, "Cek email anda", Toast.LENGTH_LONG).show()
+                        finish()
+                        binding.progressBar.visibility = View.GONE
+                    } else {
+                        Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
+                        binding.progressBar.visibility = View.GONE
+                    }
                 }
-                else{
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
-                    binding.progressBar.visibility = View.GONE
-                }
+            } else {
+                android.widget.Toast.makeText(
+                    this,
+                    "Email tidak boleh kosong",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+                binding.progressBar.visibility = android.view.View.GONE
             }
+
+
         }
     }
 }

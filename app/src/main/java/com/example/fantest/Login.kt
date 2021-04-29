@@ -39,19 +39,26 @@ class Login : AppCompatActivity() {
 
             binding.progressBar.visibility = View.VISIBLE
 
-            firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-                if (it.isSuccessful){
-                    val intent = Intent(this, Home::class.java)
-                    startActivity(intent)
-                    finish()
+            if(email.isNotEmpty() && pass.isNotEmpty()){
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                    if (it.isSuccessful){
+                        val intent = Intent(this, Home::class.java)
+                        startActivity(intent)
+                        finish()
 
-                    binding.progressBar.visibility = View.GONE
+                        binding.progressBar.visibility = View.GONE
+                    }
+                    else{
+                        Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
+                        binding.progressBar.visibility = View.GONE
+                    }
                 }
-                else{
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
-                    binding.progressBar.visibility = View.GONE
-                }
+            } else {
+                Toast.makeText(this, "Email dan Pass tidak boleh kosong", Toast.LENGTH_LONG).show()
+                binding.progressBar.visibility = View.GONE
+
             }
+
         }
 
 
