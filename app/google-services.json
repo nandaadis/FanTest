@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "630170998965",
+    "project_id": "fantest-7e966",
+    "storage_bucket": "fantest-7e966.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630170998965:android:06551a80f97df79ac0c6fc",
+        "android_client_info": {
+          "package_name": "com.example.fantest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630170998965-6k19mvq05dk7kkare6be05rkubjcf7kd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBruhKLCdWD0A_VtGJXbGlNuJMka5Bbfuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630170998965-6k19mvq05dk7kkare6be05rkubjcf7kd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
